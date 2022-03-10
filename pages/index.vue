@@ -46,7 +46,10 @@ export default {
     },
     async searchProducts() {
       const response = await fetchProductsByKeyword(this.searchKeyword);
-      console.log(response);
+      this.products = response.data.map(item => ({
+        ...item,
+        imageUrl: `${item.imageUrl}?random=${Math.random()}`
+      }));
     }
   }
 }
