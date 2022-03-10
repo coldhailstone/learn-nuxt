@@ -2,7 +2,8 @@
   <div class="app">
     <main>
       <div>
-        <SearchInput :search-keyword="searchKeyword" @input="updateSearchKeyword"></SearchInput>
+        <!-- <SearchInput :search-keyword="searchKeyword" @input="updateSearchKeyword"></SearchInput> -->
+        <SearchInput v-model="searchKeyword" @search="searchProducts"></SearchInput>
       </div>
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex" @click="moveToDetailPage(product.id)">
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import { fetchProducts } from '../api';
+import { fetchProducts, fetchProductsByKeyword } from '../api';
 
 export default {
   name: 'IndexPage',
@@ -42,6 +43,10 @@ export default {
     },
     updateSearchKeyword(keyword) {
       this.searchKeyword = keyword;
+    },
+    async searchProducts() {
+      const response = await fetchProductsByKeyword(this.searchKeyword);
+      console.log(response);
     }
   }
 }

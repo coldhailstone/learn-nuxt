@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" :value="searchKeyword" @input="$emit('input', $event.target.value)" />
-    <button>search</button>
+    <button type="button" @click="$emit('search')">search</button>
   </div>
 </template>
 
