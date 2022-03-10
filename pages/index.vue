@@ -2,7 +2,7 @@
   <div class="app">
     <main>
       <div>
-        <input type="text" />
+        <SearchInput />
       </div>
       <ul>
         <li v-for="product in products" :key="product.id" class="item flex" @click="moveToDetailPage(product.id)">
