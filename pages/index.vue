@@ -2,7 +2,6 @@
   <div class="app">
     <main>
       <div>
-        <!-- <SearchInput :search-keyword="searchKeyword" @input="updateSearchKeyword"></SearchInput> -->
         <SearchInput v-model="searchKeyword" @search="searchProducts"></SearchInput>
       </div>
       <ul>
@@ -40,9 +39,6 @@ export default {
   methods: {
     moveToDetailPage(id) {
       this.$router.push(`detail/${id}`);
-    },
-    updateSearchKeyword(keyword) {
-      this.searchKeyword = keyword;
     },
     async searchProducts() {
       const response = await fetchProductsByKeyword(this.searchKeyword);
