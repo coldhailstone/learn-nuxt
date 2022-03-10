@@ -5,7 +5,7 @@
         <input type="text" />
       </div>
       <ul>
-        <li v-for="product in products" :key="product.id" class="item flex">
+        <li v-for="product in products" :key="product.id" class="item flex" @click="moveToDetailPage(product.id)">
           <img 
             class="product-image" 
             :src="product.imageUrl" 
@@ -31,14 +31,10 @@ export default {
     }));
     return { products };
   },
-  data() {
-    return {
-      // products: []
+  methods: {
+    moveToDetailPage(id) {
+      console.log(id);
     }
-  },
-  async created() {
-    // const response = await axios.get('http://localhost:3000/products');
-    // this.products = response.data;
   }
 }
 </script>
