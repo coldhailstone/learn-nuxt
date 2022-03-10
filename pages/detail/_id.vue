@@ -25,7 +25,12 @@ export default {
     const response = await fetchProductById(params.id);
     const product = response.data;
     return { product };
-  }
+  },
+  methods: {
+    addToCart() {
+      this.$router.push('/cart');
+    }
+  },
 }
 </script>
 
