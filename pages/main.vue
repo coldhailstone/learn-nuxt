@@ -12,14 +12,19 @@ import axios from 'axios';
 
 export default {
   name: 'MainPage',
+  async asyncData() {
+    const response = await axios.get('http://localhost:3000/products');
+    const products = response.data;
+    return { products }
+  },
   data() {
     return {
-      products: []
+      // products: []
     }
   },
   async created() {
-    const response = await axios.get('http://localhost:3000/products');
-    this.products = response.data;
+    // const response = await axios.get('http://localhost:3000/products');
+    // this.products = response.data;
   }
 }
 </script>
